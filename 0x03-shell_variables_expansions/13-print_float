@@ -1,3 +1,2 @@
 #!/bin/bash
-print "%0.2f
-" $NUM
+print "%0.2f" $NUM
