@@ -4,7 +4,7 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-'''Returns number of subscribers for a subreddit if subreddit is valid. Returns 0 for invalid subreddit'''
+	'''Returns number of subscribers for a subreddit if subreddit is valid. Returns 0 for invalid subreddit'''
 	response = requests.get(f"https://www.reddit.com/r/{subreddit}/about.json")
 	if response.status_code == 200:
 		return response.json()['data']['subscribers']
