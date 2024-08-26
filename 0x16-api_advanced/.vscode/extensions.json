@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "ms-python.autopep8",
+        "giyyapan.pyformat",
+        "ms-vscode-remote.remote-wsl"
+    ]
+}
