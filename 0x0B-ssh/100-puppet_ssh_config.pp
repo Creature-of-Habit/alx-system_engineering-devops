@@ -1,10 +1,12 @@
-# Sets up client SSH configuration file to connect without password
-
-exec { 'modify_id_file':
-  command => 'sed -i "s/IdentityFile ~/.ssh/id_rsa/IdentityFile ~/.ssh/school/g" >> etc/ssh/ssh_config',
-  path    => '/bin/:/usr/bin',
+# Puppet script to create ssh config file
+file_line { 'Turn off passwd auth':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
 }
-exec { 'modify_pssw_auth':
-  command => 'sed -i "s/#   PasswordAuthentication yes/    PasswordAuthentication no/g" etc/ssh/ssh_config',
-  path    => '/bin/:/usr/bin',
+
+file_line { 'Declare identity file':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    IdentityFile ~/.ssh/school',
 }
