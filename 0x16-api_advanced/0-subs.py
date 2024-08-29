@@ -8,7 +8,8 @@ import requests
 
 def number_of_subscribers(subreddit):
     """
-    Queries the Reddit API and returns the number of subscribers for a given subreddit.
+    Queries the Reddit API.
+    Returns the number of subscribers for a subreddit.
 
     Args:
         subreddit (str): The name of the subreddit.
@@ -28,8 +29,9 @@ def number_of_subscribers(subreddit):
 
         # Check if the request was successful and if the subreddit exists
         if response.status_code == 200:
+            print("OK")
             data = response.json()
-            return data['data']['subscribers']
+            return data['data']['subscribers'],print("OK")
         return 0
     except requests.RequestException:
         # Return 0 if there's any error making the request
