@@ -28,7 +28,6 @@ def count_words(subreddit, word_list, after="", results={}):
     param = {'after': after}
     response = requests.get(url=url, headers=header,
                             params=param, allow_redirects=False, timeout=10)
-
     if response.status_code == 200:
         resp = response.json().get('data')
         r_data = resp.get('children')
@@ -38,8 +37,6 @@ def count_words(subreddit, word_list, after="", results={}):
             data = res.get('data')
             title = data.get('title')
             print(title)
-
-
         if after is not None:
             return recurse(subreddit=subreddit, hot_list=hot_list, after=after)
         else:
